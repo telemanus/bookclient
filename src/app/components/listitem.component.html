@@ -1,0 +1,29 @@
+<h1>BookResult{{this.bookresult}}</h1>
+<h2>Passed Result {{passResult}}</h2>
+
+    <table mat-table [dataSource] = "this.bookresult.data" width=100% class="mat-elevation-z8" matSort *ngIf="passResult && passResult.length > 0">
+      <ng-container matColumnDef="id">
+        <mat-head-cell *matHeaderCellDef>Id</mat-head-cell>
+        <mat-cell *matCellDef="let r"> {{r.id}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="title">
+        <mat-head-cell *matHeaderCellDef mat-sort-header>Title</mat-head-cell>
+        <mat-cell *matCellDef="let r"> {{r.title}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="lastname">
+        <mat-head-cell *matHeaderCellDef>Last Name</mat-head-cell>
+        <mat-cell *matCellDef="let r"> {{r.author_lastname}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="firstname">
+        <mat-head-cell *matHeaderCellDef>First Name</mat-head-cell>
+        <mat-cell *matCellDef="let r"> {{r.author_firstname}}</mat-cell>
+      </ng-container>
+
+
+      <mat-header-row *matHeaderRowDef="displayCols" width=100%></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayCols"></mat-row>
+
+    </table>
