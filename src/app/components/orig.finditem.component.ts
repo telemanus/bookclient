@@ -36,12 +36,11 @@ export class FinditemComponent implements OnInit {
     this.bookdbsvc.getItem("0",limit,title,author)
     .then((results)=>{
       this.item = results;
-      this.itemList.emit(this.item);
-
     })
 
     console.log(">>>>>", limit);
     
+    this.itemList.emit(this.item);
       
     console.log("*Loggin this  ", this.item);
   }
