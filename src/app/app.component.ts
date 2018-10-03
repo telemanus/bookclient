@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { Component, EventEmitter, Output, Input, ViewChild } from '@angular/core';
+import { ListitemComponent } from './components/listitem.component';
 
 
 export interface itemList {
@@ -12,8 +13,11 @@ export interface itemList {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent {
-  title = 'day8 Grocer Client';
+
+  title = 'day10 Book Client';
   itemResult:string[];
 
   myItemList: itemList[];
@@ -24,7 +28,6 @@ export class AppComponent {
   
   @Output()
   activate = new EventEmitter();
-  
 
  
   propagateList(item: any) {
@@ -34,9 +37,16 @@ export class AppComponent {
 
     console.log(">> this.itemResult<< ", this.itemResult);
 
-    this.activate.emit(this.itemResult);
+      this.activate.emit(this.itemResult);
 
-  //  return this.filmResult;
+    /*
+    return new Promise(function(resolve, reject) {
+
+      resolve(JSON.parse(this.itemResult));
+    
+    })
+    */
+
     }
 
 }

@@ -1,9 +1,12 @@
+
+
 <!--
-<h1>BookResult{{this.bookresult}}</h1>
+<h1>BookResult{{datasource.data}}</h1>
 <h2>Passed Result {{passResult}}</h2>
 -->
+
 <mat-card>
-    <table mat-table [dataSource] = "passResult" width=100% class="mat-elevation-z8" matSort *ngIf="passResult && passResult.length > 0">
+    <table mat-table [dataSource] = "datasource" width=100% class="mat-elevation-z8" matSort *ngIf="passResult && passResult.length > 0">
       <ng-container matColumnDef="id">
         <th mat-head-cell *matHeaderCellDef>Id</th>
         <td mat-cell *matCellDef="let r"> {{r.id}}</td>
@@ -15,12 +18,12 @@
       </ng-container>
 
       <ng-container matColumnDef="lastname">
-        <th mat-head-cell *matHeaderCellDef>Last Name</th>
+        <th mat-head-cell *matHeaderCellDef mat-sort-header>Last Name</th>
         <td mat-cell *matCellDef="let r"> {{r.author_lastname}}</td>
       </ng-container>
 
       <ng-container matColumnDef="firstname">
-        <th mat-head-cell *matHeaderCellDef>First Name</th>
+        <th mat-head-cell *matHeaderCellDef mat-sort-header>First Name</th>
         <td mat-cell *matCellDef="let r"> {{r.author_firstname}}</td>
       </ng-container>
 
